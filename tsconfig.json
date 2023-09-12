@@ -2,12 +2,5 @@
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "module": "Node16",
-    // "baseUrl": ".",
-    // "paths": {
-    //   // If using import xx from '@utils/xx'
-    //   // The exported type will become any
-    //   // TODO: If typescript fix this problem, reuse this path setting
-    //   "@utils/*": ["../utils/src/*"]
-    // }
   }
 }
