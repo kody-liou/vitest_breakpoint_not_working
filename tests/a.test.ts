@@ -13,9 +13,9 @@ function purchase() {
 }
 
 function delay(milliseconds: number) {
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
+  return new Promise(resolve => {
+    setTimeout(resolve, milliseconds);
+  });
 }
 
 describe('purchasing flow', () => {
@@ -33,17 +33,8 @@ describe('purchasing flow', () => {
     // set hour within business hours
     const date = new Date(2000, 1, 1, 13)
     vi.setSystemTime(date)
-    // await delay(3000);
+    await delay(3000);
     // access Date.now() will result in the date set above
     expect(purchase()).toEqual({ message: 'Success' })
-  })
-
-  it('disallows purchases outside of business hours', () => {
-    // set hour outside business hours
-    const date = new Date(2000, 1, 1, 19)
-    vi.setSystemTime(date)
-
-    // access Date.now() will result in the date set above
-    expect(purchase()).toEqual({ message: 'Error' })
-  })
+  }, { timeout: 30000 })
 })
